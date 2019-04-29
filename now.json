@@ -1,6 +1,11 @@
 {
   "version": 2,
   "name": "ideas-generator",
+  "build": {
+    "env": {
+      "REACT_APP_AIRTABLE_KEY": "@react_app_airtable_key"
+    }
+  },
   "builds": [
     {
       "src": "package.json",
