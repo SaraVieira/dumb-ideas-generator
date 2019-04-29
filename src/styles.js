@@ -1,3 +1,7 @@
+import { createGlobalStyle } from 'styled-components'
+import bg from './images/bg.png'
+
+export default createGlobalStyle`
 body {
   margin: 0;
   padding: 0;
@@ -6,9 +10,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(${bg});
+  width: 100vw;
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+`
