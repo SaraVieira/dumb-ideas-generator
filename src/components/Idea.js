@@ -125,45 +125,43 @@ export default ({ active, idea, IdeaCreator, id }) => {
           @{IdeaCreator}
         </a>
         <Button onClick={() => setModal(true)}>I made dis</Button>
-        {transitions.map(
-          ({ item, key, props }) =>
-            item && (
-              <DialogOverlayStyled key={key} style={props}>
-                <DialogContentStyled
-                  style={{
-                    transform: `translate3d(0px, ${props.y}px, 0px)`
-                  }}
-                >
-                  <h2>That is fucking awesome</h2>
-                  <form onSubmit={handleSubmit}>
-                    <div>
-                      <Label htmlFor="url">Where is the project hosted?</Label>
-                      <Input
-                        onChange={e => setUrl(e.target.value)}
-                        value={url}
-                        id="url"
-                        type="url"
-                      />
-                    </div>
-                    <div>
-                      <Label htmlFor="twitter">
-                        Where is your twitter handle?
-                      </Label>
-                      <Input
-                        onChange={e => setTwitter(e.target.value)}
-                        value={twitter}
-                        id="twitter"
-                      />
-                    </div>
-                    <Button type="submit">PUSH IT TO PROD</Button>
-                  </form>
-                  <Button type="button" onClick={() => setModal(false)}>
-                    Close
-                  </Button>
-                  {submitted && <h2>YA THA BOMB</h2>}
-                </DialogContentStyled>
-              </DialogOverlayStyled>
-            )
+        {modal && (
+          <DialogOverlayStyled
+            // style={props.opacity}
+            onClick={() => setModal(false)}
+          >
+            <DialogContentStyled
+            // style={{
+            //   transform: `translate3d(0px, ${props.y}px, 0px)`
+            // }}
+            >
+              <h2>That is fucking awesome</h2>
+              <form onSubmit={handleSubmit}>
+                <div>
+                  <Label htmlFor="url">Where is the project hosted?</Label>
+                  <Input
+                    onChange={e => setUrl(e.target.value)}
+                    value={url}
+                    id="url"
+                    type="url"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="twitter">Where is your twitter handle?</Label>
+                  <Input
+                    onChange={e => setTwitter(e.target.value)}
+                    value={twitter}
+                    id="twitter"
+                  />
+                </div>
+                <Button type="submit">PUSH IT TO PROD</Button>
+              </form>
+              <Button type="button" onClick={() => setModal(false)}>
+                Close
+              </Button>
+              {submitted && <h2>YA THA BOMB</h2>}
+            </DialogContentStyled>
+          </DialogOverlayStyled>
         )}
       </Section>
     </>

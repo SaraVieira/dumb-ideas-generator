@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import axios from './utils/axios'
 import shuffleArray from './utils/shuffle'
-
-const Main = styled.ul`
-  width: 100vw;
-  height: calc(100vh - 80px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`
+import Main from './components/Main'
 
 function App() {
   const [ideas, setIdeas] = useState([])

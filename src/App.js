@@ -3,15 +3,7 @@ import styled from 'styled-components'
 import axios from './utils/axios'
 import shuffleArray from './utils/shuffle'
 import Idea from './components/Idea'
-
-const Main = styled.main`
-  width: 100vw;
-  height: calc(100vh - 80px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`
+import Main from './components/Main'
 
 const Footer = styled.h2`
   position: fixed;
