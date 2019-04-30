@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { Router, Link } from '@reach/router'
 import Styles from './styles.js'
-import App from './App'
+import Home from './Home'
+import Logo from './components/Logo'
 import Done from './Done'
 
 const Nav = styled.nav`
@@ -24,16 +25,24 @@ const Nav = styled.nav`
   }
 `
 
+const theme = {
+  black: '#071e22',
+  white: '#f9c170'
+}
+
 ReactDOM.render(
-  <>
-    <Styles />
-    {/*    <Nav>
-      <Link to="/">Home</Link> <Link to="done">Done Projects</Link>
-    </Nav> */}
-    <Router>
-      <App path="/" />
-      <Done path="/done" />
-    </Router>
-  </>,
+  <ThemeProvider theme={theme}>
+    <>
+      <Styles />
+      <Nav>
+        <Link to="/">Home</Link> <Link to="done">Done Projects</Link>
+      </Nav>
+      <Logo />
+      <Router>
+        <Home path="/" />
+        <Done path="/done" />
+      </Router>
+    </>
+  </ThemeProvider>,
   document.getElementById('root')
 )

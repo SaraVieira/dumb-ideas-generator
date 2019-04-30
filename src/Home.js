@@ -8,6 +8,16 @@ import Main from './components/Main'
 const Footer = styled.h2`
   position: fixed;
   bottom: 0;
+  font-size: 20px;
+`
+
+const Button = styled.button`
+  background: transparent;
+  padding: 0%;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
 `
 
 function App() {
@@ -26,9 +36,9 @@ function App() {
 
   useEffect(() => {
     const handleKeypress = e => {
-      var randomItem = Math.floor(Math.random() * ideas.length)
+      const randomIdea = Math.floor(Math.random() * ideas.length)
       if (e.code === 'Space') {
-        setActiveIdea(randomItem)
+        setActiveIdea(randomIdea)
       }
     }
     window.addEventListener('keydown', handleKeypress)
@@ -50,7 +60,17 @@ function App() {
           ))
         : null}
 
-      <Footer>Click Space to see more dumb ideas</Footer>
+      <Footer>
+        Click Space or{' '}
+        <Button
+          onClick={() =>
+            setActiveIdea(Math.floor(Math.random() * ideas.length))
+          }
+        >
+          Here
+        </Button>{' '}
+        to see more dumb ideas
+      </Footer>
     </Main>
   )
 }
